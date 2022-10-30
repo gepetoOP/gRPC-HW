@@ -22,4 +22,3 @@ public class QuestionService extends QuestionGrpc.QuestionImplBase {
         return QuestionReply.newBuilder().setMessage(resposta).build();
     }
 }
-
