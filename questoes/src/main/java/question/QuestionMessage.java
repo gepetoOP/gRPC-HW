@@ -17,7 +17,6 @@ public class QuestionMessage {
     );
 
     public String retornaFrase() {
-        int indice = ThreadLocalRandom.current().nextInt(frases.size());
-        return frases.get(indice);
+        return frases.get(ThreadLocalRandom.current().nextInt(frases.size()));
     }
 }

@@ -1,8 +1,8 @@
 package question.services;
 
+import question.QuestionGrpc;
 import question.QuestionMessage;
 import io.grpc.stub.StreamObserver;
-import question.QuestionGrpc;
 import question.QuestionReply;
 import question.QuestionRequest;
 
