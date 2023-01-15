@@ -9,8 +9,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.slf4j.LoggerFactory;
 
-import java.util.logging.Logger;
-
 public class MongoDBStart {
     public static void main( String[] args ) {
         String uri = "uri";

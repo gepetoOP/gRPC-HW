@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: demoGrpc
+
+grpc:
+  server:
+    port: 8080
+    keep-alive-time: 10s
+    max-inbound-message-size: 1024

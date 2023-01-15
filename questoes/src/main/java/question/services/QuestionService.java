@@ -1,12 +1,12 @@
 package question.services;
 
+import jakarta.inject.Singleton;
 import question.QuestionGrpc;
 import question.QuestionMessage;
 import io.grpc.stub.StreamObserver;
 import question.QuestionReply;
 import question.QuestionRequest;
 
-import javax.inject.Singleton;
 
 @Singleton
 public class QuestionService extends QuestionGrpc.QuestionImplBase {
