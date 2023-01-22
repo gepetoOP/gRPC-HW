@@ -1,9 +1,12 @@
 package question;
 
+import jakarta.inject.Singleton;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+@Singleton
 public class QuestionMessage {
     final private List<String> frases = Arrays.asList(
             "Thousands of candles can be lighted from a single candle, and the life of the candle will not be shortened. Happiness never decreases by being shared. - Buddha",
