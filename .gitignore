@@ -1,4 +1,4 @@
 /.idea/
 /questoes/questoes.iml
 /questoes/target/
-/env/local.env
+/env/*
