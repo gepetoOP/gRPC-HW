@@ -19,13 +19,17 @@ public class QuestionsRepositoryImpl implements QuestionRepository {
         this.collection = database.getCollection("questions", QuestionMessageDocument.class);
     }
 
-    public BsonValue save(QuestionMessage questionMessage) {
+    public String save(QuestionMessage questionMessage) {
         var newDocument = new QuestionMessageDocument();
         newDocument.setDate(questionMessage.getDate());
         newDocument.setMessage(questionMessage.getMessage());
 
         var result = collection.insertOne(newDocument);
 
-        return result.getInsertedId();
+        if (result.getInsertedId() != null) {
+            return result.getInsertedId().asObjectId().getValue().toString();
+        }
+
+        return null;
     }
 }

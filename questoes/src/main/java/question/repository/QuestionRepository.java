@@ -4,5 +4,5 @@ import org.bson.BsonValue;
 import question.domain.QuestionMessage;
 
 public interface QuestionRepository {
-    BsonValue save(QuestionMessage questionMessage);
+    String save(QuestionMessage questionMessage);
 }
