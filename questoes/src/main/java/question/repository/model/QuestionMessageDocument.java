@@ -1,15 +1,19 @@
 package question.repository.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.bson.Document;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
 @Data
-public class QuestionMessageDocument extends Document {
-    @JsonProperty("_id")
+public class QuestionMessageDocument {
+    @BsonProperty(value = "_id")
     private ObjectId id = new ObjectId();
+
+    @BsonProperty(value = "message")
     private String message;
+
+    @BsonProperty(value = "date")
     private String date;
 
     public Document toDocument() {

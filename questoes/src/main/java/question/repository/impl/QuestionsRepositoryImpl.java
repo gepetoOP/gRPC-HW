@@ -12,11 +12,11 @@ import question.repository.model.QuestionMessageDocument;
 
 @Singleton
 public class QuestionsRepositoryImpl implements QuestionRepository {
-    final MongoCollection<Document> collection;
+    final MongoCollection<QuestionMessageDocument> collection;
 
     public QuestionsRepositoryImpl(MongoClient mongoClient) {
         var database = mongoClient.getDatabase("test");
-        this.collection = database.getCollection("questions");
+        this.collection = database.getCollection("questions", QuestionMessageDocument.class);
     }
 
     public BsonValue save(QuestionMessage questionMessage) {
@@ -24,9 +24,7 @@ public class QuestionsRepositoryImpl implements QuestionRepository {
         newDocument.setDate(questionMessage.getDate());
         newDocument.setMessage(questionMessage.getMessage());
 
-        System.out.println(newDocument);
-
-        var result = collection.insertOne(newDocument.toDocument());
+        var result = collection.insertOne(newDocument);
 
         return result.getInsertedId();
     }
