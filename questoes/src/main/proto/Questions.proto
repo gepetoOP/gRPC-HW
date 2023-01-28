@@ -6,6 +6,7 @@ option java_outer_classname = "QuestionProto";
 
 service Question {
   rpc CallQuestion (QuestionRequest) returns (QuestionReply) {}
+  rpc SaveQuestion (SaveQuestionRequest) returns (SaveQuestionReply) {}
 }
 
 message QuestionRequest {
@@ -13,5 +14,14 @@ message QuestionRequest {
 }
 
 message QuestionReply {
+  string message = 1;
+}
+
+message SaveQuestionRequest {
+  string message = 1;
+  string date = 2;
+}
+
+message SaveQuestionReply {
   string message = 1;
 }

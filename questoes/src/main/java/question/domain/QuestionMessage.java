@@ -1,13 +1,23 @@
-package question;
+package question.domain;
 
-import jakarta.inject.Singleton;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-@Singleton
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class QuestionMessage {
+    private String message;
+    private String date;
+
     final private List<String> frases = Arrays.asList(
             "Thousands of candles can be lighted from a single candle, and the life of the candle will not be shortened. Happiness never decreases by being shared. - Buddha",
             "There are more things to alarm us than to harm us, and we suffer more often in apprehension than reality. - Seneca",
@@ -19,7 +29,7 @@ public class QuestionMessage {
             "Just because it didn’t last forever, doesn’t mean it wasn’t worth your while. - Unknown"
     );
 
-    public String retornaFrase() {
+    public String getMessage() {
         return frases.get(ThreadLocalRandom.current().nextInt(frases.size()));
     }
 }
