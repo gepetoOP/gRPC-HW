@@ -10,6 +10,6 @@ import java.time.LocalDateTime;
 @Mapper(componentModel = "jsr330", imports = LocalDateTime.class)
 public interface QuestionMessageMapper {
     @Mapping(target = "message", source = "message")
-    @Mapping(target = "date", expression = "java(LocalDateTime.now().toString())")
+    @Mapping(target = "dateTime", expression = "java(LocalDateTime.now())")
     QuestionMessage toQuestionMessage(QuestionRequest request);
 }

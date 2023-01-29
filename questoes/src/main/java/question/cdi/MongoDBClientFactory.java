@@ -12,6 +12,8 @@ import io.micronaut.context.annotation.Factory;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.annotation.Value;
 import jakarta.inject.Singleton;
+import org.bson.codecs.configuration.CodecRegistries;
+import org.bson.codecs.jsr310.LocalDateTimeCodec;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import question.infra.repository.model.QuestionMessageDocument;
 
@@ -24,8 +26,9 @@ public class MongoDBClientFactory {
     @Singleton
     public MongoClient mongoClient(@Value("${mongo.uri}") String mongoUri) {
         var connectionString = new ConnectionString(mongoUri);
+        var codecRegistryFromCodecs = CodecRegistries.fromCodecs(new LocalDateTimeCodec());
         var pojoCodecRegistry = fromProviders(PojoCodecProvider.builder().automatic(true).build());
-        var codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry);
+        var codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), pojoCodecRegistry, codecRegistryFromCodecs);
 
         var settings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)

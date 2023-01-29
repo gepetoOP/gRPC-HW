@@ -27,8 +27,8 @@
         <exec.mainClass>Application</exec.mainClass>
         <micronaut.runtime>netty</micronaut.runtime>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-
     </properties>
+
     <repositories>
         <repository>
             <id>central</id>

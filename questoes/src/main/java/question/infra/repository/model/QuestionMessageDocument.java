@@ -1,8 +1,11 @@
 package question.infra.repository.model;
 
 import lombok.Data;
+import org.bson.BsonDateTime;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
+
+import java.time.LocalDateTime;
 
 @Data
 public class QuestionMessageDocument {
@@ -13,5 +16,5 @@ public class QuestionMessageDocument {
     private String message;
 
     @BsonProperty(value = "date")
-    private String date;
+    private LocalDateTime date;
 }
