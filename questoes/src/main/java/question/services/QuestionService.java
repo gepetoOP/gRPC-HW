@@ -6,8 +6,8 @@ import jakarta.inject.Singleton;
 import question.QuestionGrpc;
 import question.QuestionReply;
 import question.QuestionRequest;
-import question.infra.mapper.rpc.QuestionMessageMapper;
-import question.infra.mapper.repository.QuestionRepository;
+import question.infra.rpc.mapper.QuestionMessageMapper;
+import question.infra.repository.QuestionRepository;
 
 @Singleton
 public class QuestionService extends QuestionGrpc.QuestionImplBase {

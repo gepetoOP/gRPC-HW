@@ -1,4 +1,4 @@
-package question.infra.mapper.repository;
+package question.infra.repository;
 
 import question.domain.QuestionMessage;
 

@@ -1,4 +1,4 @@
-package question.infra.mapper.rpc;
+package question.infra.rpc.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
