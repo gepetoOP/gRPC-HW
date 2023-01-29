@@ -6,11 +6,14 @@ import com.mongodb.ServerApi;
 import com.mongodb.ServerApiVersion;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
+import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.annotation.Value;
 import jakarta.inject.Singleton;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import question.infra.repository.model.QuestionMessageDocument;
 
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -35,4 +38,12 @@ public class MongoDBClientFactory {
         return MongoClients.create(settings);
     }
 
+    @Bean
+    @Singleton
+    @Requires(classes = MongoClient.class)
+    public MongoCollection<QuestionMessageDocument> questionMessageDocumentMongoCollection(MongoClient mongoClient) {
+        var database = mongoClient.getDatabase("test");
+
+        return database.getCollection("questions", QuestionMessageDocument.class);
+    }
 }
