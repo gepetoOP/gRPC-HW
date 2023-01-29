@@ -12,6 +12,7 @@ import question.infra.repository.model.QuestionMessageDocument;
 public class QuestionsRepositoryImpl implements QuestionRepository {
     @Inject
     MongoCollection<QuestionMessageDocument> collection;
+
     @Inject
     QuestionMessageDocumentMapper mapper;
 
