@@ -1,4 +1,4 @@
-package question.factory;
+package question.cdi;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

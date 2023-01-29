@@ -1,7 +1,6 @@
 package question.infra.mapper.repository.model;
 
 import lombok.Data;
-import org.bson.Document;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
