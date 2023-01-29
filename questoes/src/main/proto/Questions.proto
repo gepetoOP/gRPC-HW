@@ -10,7 +10,7 @@ service Question {
 }
 
 message QuestionRequest {
-  string name = 1;
+  string message = 1;
 }
 
 message QuestionReply {
