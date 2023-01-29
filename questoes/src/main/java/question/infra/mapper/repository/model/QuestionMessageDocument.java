@@ -1,4 +1,4 @@
-package question.repository.model;
+package question.infra.mapper.repository.model;
 
 import lombok.Data;
 import org.bson.Document;

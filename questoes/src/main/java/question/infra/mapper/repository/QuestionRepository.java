@@ -1,6 +1,5 @@
-package question.repository;
+package question.infra.mapper.repository;
 
-import org.bson.BsonValue;
 import question.domain.QuestionMessage;
 
 public interface QuestionRepository {

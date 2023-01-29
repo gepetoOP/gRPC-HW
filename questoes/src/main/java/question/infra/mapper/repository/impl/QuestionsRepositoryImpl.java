@@ -1,14 +1,11 @@
-package question.repository.impl;
+package question.infra.mapper.repository.impl;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import jakarta.inject.Singleton;
-import org.bson.BsonValue;
-import org.bson.Document;
-import org.bson.types.ObjectId;
 import question.domain.QuestionMessage;
-import question.repository.QuestionRepository;
-import question.repository.model.QuestionMessageDocument;
+import question.infra.mapper.repository.QuestionRepository;
+import question.infra.mapper.repository.model.QuestionMessageDocument;
 
 @Singleton
 public class QuestionsRepositoryImpl implements QuestionRepository {
