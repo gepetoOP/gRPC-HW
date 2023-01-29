@@ -15,11 +15,4 @@ public class QuestionMessageDocument {
 
     @BsonProperty(value = "date")
     private String date;
-
-    public Document toDocument() {
-        return new Document()
-                .append("_id", this.getId())
-                .append("message", this.getMessage())
-                .append("date", this.getDate());
-    }
 }
