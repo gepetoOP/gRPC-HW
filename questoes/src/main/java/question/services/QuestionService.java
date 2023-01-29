@@ -2,22 +2,23 @@ package question.services;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-import lombok.RequiredArgsConstructor;
 import question.QuestionGrpc;
 import question.domain.QuestionMessage;
 import io.grpc.stub.StreamObserver;
 import question.QuestionReply;
 import question.QuestionRequest;
+import question.infra.mapper.QuestionMessageMapper;
 import question.repository.QuestionRepository;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 
 @Singleton
 public class QuestionService extends QuestionGrpc.QuestionImplBase {
     @Inject
     private QuestionRepository questionRepository;
+    @Inject
+    private QuestionMessageMapper questionMessageMapper;
 
     @Override
     public void callQuestion(QuestionRequest request, StreamObserver<QuestionReply> responseObserver) {
@@ -26,11 +27,10 @@ public class QuestionService extends QuestionGrpc.QuestionImplBase {
     }
 
     private QuestionReply buildResponse(QuestionRequest request) {
-        var questionMessage = QuestionMessage.builder().message(UUID.randomUUID().toString()).date(LocalDateTime.now().toString()).build();
-        var resposta = request.getName() + " : " + questionMessage.getMessage();
-        var response = questionRepository.save(questionMessage);
-        System.out.println(response);
+        var questionMessage = questionMessageMapper.toQuestionMessage(request.getName());
 
-        return QuestionReply.newBuilder().setMessage(resposta).build();
+        var response = questionRepository.save(questionMessage);
+
+        return QuestionReply.newBuilder().setMessage(response).build();
     }
 }
